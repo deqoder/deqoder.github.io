@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta charset = 'utf-8' />
+<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+<script src = "https://rawgit.com/deqoder/hzxor/master/hzxor.js"></script>
+</head>
+<body>
+<div>
+<span>密码: </span><input id = "key" ></input> <button onclick = "show()">解密</button>
+</div>
+<pre id = "content">
+TcCK犨骓K(6O
+	I阮蛭最趹41E:
+		I鑕騌I+6I膠鯰擇C*
+		I踁鯮I+6I磱4?
+		C淅讌磳戼I+6I4#34|75}72"I9		
+		C鰟鍨辴蜑I+6o4|22*7g*
+		I诱燌I+4鬮臉預慝C*
+		I釣黊徱C{I胏膺惘鲴瑙魕髮4?
+	M9
+	C銳捛讨洜I+:
+		I鋂骓I+4嶺鋂蛭躶C*
+		I鋂藸I+4存蹫稓壼锁銳I9
+		4棎乨41C箰蠳滗逴蹼C*
+		I欷戬贾澁41Cr&amp;p)5C*
+		I漒琎粚搨41i4(C*I"+@C*IzbI94!c?iC*IqMeXIIg*
+		I漒琎匼驅41I
+			I"41EZI蘡鱓塎C*I}iabRI96IQFgYPVC*KCEV\CecQWC*KCpiQ&lt;rC*KC^aV#9CX?
+			4(:+I+6oC蘒攛辕4?E4}~rI96I"azCX?
+			4!q41EZIZdU_CQC*KCq{w4?E4V\Ce_(`Q4m9
+			IzTTc41i4*VQXULfEb'y4m9
+			IqMeXII+6oCr[RPuPL^Q4m
+		G
+		4孕袴眎磀瞤不I+Z
+			Cr@:6zRL]_CK1AbC*
+			CtzopI9
+			I#PbRFUJ6*76%UC[O;iV{K)a(t'"t6zRFVUR[X6wOLV_wK1AbC*
+			C`\[=KqMeXIKtC[]CiWHaVNI
+		g
+			
+	8?
+	I遃麽覸骢41i
+		:
+			C蠣犓C{KC$;4!塭4蜑蚔3&amp;:/辥5蜠4?
+			4敵騰41E4惘鲴堞哙庹鼣I9
+			I遃麽敜鉯41i
+				C队桓"az瞤蛺筠龄蠆礘鼲輙挐C*
+				4廧龚唻減瞤蛺筠龄蠆礘鼲輙挐C*
+				4D龗骸D喯眫存髕tzt輙挐C
+			m
+		G*
+		O
+			4僫場41E495%5辴~俙氵$;4~塭0蜑I9
+			I鲼騡I+6I頟颕摁衹该斖C*
+			C逴枅鲣鉠I+6oE4廧龚txw6~[GUL瞕棖黛蛟埡驗乥覓讄4Kg
+		8
+	X	
+		
+	I臦淍嗒騗41I
+		4嗒騗醂枔C{Ki
+			I郜鲴埒輨驈I9
+			I"+@銆询趘輨驈I9
+			I鯛猪埡驗4
+		m9
+		4嗒騗桯筃C{KC&amp;=07;7}棚6蜑I9
+	G
+M*
+</pre>
+<script>
+
+var raw = document.getElementById("content").textContent;
+function show()
+{
+	var key = document.getElementById("key").value;
+	document.getElementById("content").textContent = hzxor(raw, key);
+	
+}
+</script>
+</body>
+</html>
