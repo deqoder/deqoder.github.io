@@ -2,6 +2,7 @@
 <head>
 <meta charset = 'utf-8' />
 <meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+<script src = "https://code.jquery.com/jquery-1.9.0.min.js"></script>
 <script src = "https://rawgit.com/deqoder/hzxor/master/hzxor.js"></script>
 </head>
 <body>
@@ -68,11 +69,14 @@ M*
 </pre>
 <script>
 
-var raw = document.getElementById("content").textContent;
+//var raw = document.getElementById("content").textContent;
+	// 兼容IE
+var raw = $("#content").text();
 function show()
 {
 	var key = document.getElementById("key").value;
-	document.getElementById("content").textContent = hzxor(raw, key);
+//	document.getElementById("content").textContent = hzxor(raw, key);
+	$("#content").text(hzxor(raw, key));
 	
 }
 </script>
