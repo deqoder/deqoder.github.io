@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset='utf-8' /></head>
+<body>
+<h2>Basic Info</h2>
+<input id='key_en'></input><button onclick='f_en()'>decrypt</button>
+<br/>
+<textarea id='basic_en' style='width: 100%; height: 10rem;'>
+YC&gt;Ft7XHH/82,XFQ@2&lt;1(膂鯨鯷'M@2h;&gt;6F8I.
+jF5C?9q/IMEF
+N?J9_PlB95m%zru$
+a?BD?\ElG&lt;Cq$a?=297ZB454&lt;B;#7dHJ0?C=,kG9C7*{%QCILEP=&lt;(T9&lt;8M@NFw(aCB@U
+]F7m%$!v!&amp;!xkvkw{v#{}
+O&gt;7F?EHIw,qwst|~"/%,/8@J23lEP3:9=,X:U&lt;CF/(a&lt;&gt;AA@HHB3;&lt;=/s?$?/C'
+y~&amp;x#{l(w,y~&amp;w#{n,ZBJ;NMC,YF1GJ=7aLG:D;=F/iMNC:9?,h?)B=G&amp;
+r{zy(~!,v(r{zx(~z0Y&gt;C3B@O/ZF5@?,X?P::J1B%h&lt;!J:M.
+</textarea>
+<h2>Education & Skills</h2>
+<ul>
+	<li>Education: Bachelar's Degree in IoT</li>
+	<li>Human Language：English: CET-6; Mandarin: almost native; Wu(or Shanghainese): native level</li>
+	<li>Programming Language: C/C++ fluent;golang/js/shell/awk/sql: almost fluent; python/java/lua/php: just used</li>
+	<li>Programming Tool: <ul>
+ 		<li>OS：linux/windows </li>
+ 		<li>Edit&Compile: gcc/vim etc.</li>
+ 		<li>Internet: google/github/stackoverflow/wikipedia</li>
+ 	</ul></li>
+	<li>Encoding/Format/Protocol: A deep understaning in binary, N-base, complement number, float point number, digital signal, analog signal, data rate, baud rate, serial, paralle, EUC-CN, UTF-8, UTF-16, big-endian, little-endian, direct-addressing, indrict-addressing, physical address, logical address, linked-list, binary-tree. A well understaningn in TCP/IP protocol stack, HTTP protocol. </li>
+</ul>
+<h2>Project Experience</h2>
+<ul>
+<li>Project of Ship : Responsibility in Embedded Linux making firmware based on OpenWrt, including LuCI configure interface development, data collecting from serial port and IIC, network configuration(4G dial up, prevent unrecognized user to access wifi based on mac filter & iptable，PPTP VPN for remote access due to lack of public IPv4 address，port forwading)，application written in Python & Shell, develope auto update function in embedded side & server side. 
+Develop server side CRUD (Beego + mysql). </li>
+<li>Five-categorized blood cell analyser: An already developed project, based on ARM-AT91, functions including read & execute of an control instructions file, report exception to upper layer machine(windows written in C#) throw private protocol based on TCP. When I was in job, I just read the code and then maintain it and add a little function on it.
+</li>
+<li>Cloud Card Project(demo): server side PHP, client side call Zxing library and implement scan QR code payment function.</li>
+<li>High Frequency Future Hedge: call CTP(Comprehensive Transaction Platform) to subscribe market data and make order.</li>
+</ul>
+<h2>Desired Job</h2>
+<p>C/C++ or Golang development in server side</p>
+</body>
+<script>
+function hzxor(input, key){
+	var output = "";
+	var j = 0;
+	var klen = key.length;
+	for (var i = 0; i != input.length; ++i)	{
+		var input_code = input.charCodeAt(i);
+		var input_key = key.charCodeAt(j++ % klen);
+		var new_code;
+		var ascii_sum = 0x20 + 0x7e;
+		var cjk_base_v1_sum = 0x4e00 + 0x9fa5;
+		if (input_code >= 0x20 && input_code < 0x7f){
+			new_code = ascii_sum - input_code + input_key;
+			if (new_code > 0x7e) new_code = (new_code - 0x20) % (0x7f - 0x20)+ 0x20;
+		} else if (input_code >= 0x4e00 && input_code <= 0x9fa5){
+			new_code = cjk_base_v1_sum - input_code + input_key;
+			if (new_code > 0x9fa5) new_code = (new_code - 0x4e00) % (0x9fa6 - 0x4e00) + 0x4e00; 
+		}
+		else new_code = input_code;
+		
+		output += String.fromCharCode(new_code);
+
+	}
+	return output;
+}
+function $(id){
+	return document.getElementById(id);
+}
+function f_en(){
+	var key = $('key_en').value;
+	var basic = $('basic_en').value;
+	var out = hzxor(basic, key);
+	$('basic_en').value = out;
+}
+
+</script>
+</html>
