@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head><meta charset='utf-8' /></head>
-<body>
+<body style='padding-right:10%;padding-left:10%'>
 <h2>基本信息</h2>
 <input id='key'></input><button onclick='f()'>解密</button>
 <pre id='basic'>
@@ -16,36 +16,46 @@
 　　　td{6wds:td{2wdvK搜订腶谰晾迹/
 </pre>
 <h2>学历技能</h2>
-
-
 <ul>
 	<li>教育：本科物联网工程</li>
 	<li>人类语言：英语CET-6</li>
-	<li>编程语言：C/C++熟练，golang/js/shell/awk/sql基本熟练，			python/java/lua/php用过</li>
+	<li>编程语言：C/C++熟练，Golang/JS/Shell/AWK/SQL基本熟练，Python/Java/Lua/PHP用过</li>
 	<li>工具使用：<ul>
- 		<li>系统软件：linux/windows基本熟练</li>
+ 		<li>系统软件：Linux/Windows基本熟练</li>
  		<li>应用软件：gcc/vim等	</li>
- 		<li>互联网：google/github/stackoverflow基本熟练</li>
+ 		<li>互联网：谷歌/维基百科/GitHub/StackOverflow 基本熟练</li>
  	</ul></li>
-	<li>编码/格式/协议：深入理解二进制，n进制，补码，浮点数，数字信号，模拟信号，数据率，波特率，串行，并行，调频，调幅，调相，转义，EUC-CN，UTF-8，UTF-16，大端，小端，直接寻址，间接寻址，物理地址，逻辑地址，链表，二叉树。基本理解TCP/IP协议栈，HTTP协议。</li>
+	<li>编码/格式/协议：深入理解二进制，N进制，补码，浮点数，数字信号，模拟信号，数据率，波特率，串行，并行，调频，调幅，调相，转义，EUC-CN，UTF-8，UTF-16，大端，小端，直接寻址，间接寻址，物理地址，逻辑地址，链表，二叉树。基本理解TCP/IP协议栈，HTTP协议。</li>
 </ul>
 <h2>项目经验</h2>
 <ul>
-<li>船联网项目：负责嵌入式端基于openwrt的固件制作，包括luci界面开发，数据采集，网络配置(4G拨号，防蹭网，PPTP，端口转发)，应用软件自动升级。负责服务端CRUD(beego+mysql)。</li>
+<li>船联网项目：主要负责嵌入式端（openwrt)，部分服务器端(beego+mysql)，部分前端，具体做的模块如下：
+<ul>
+<li>姿态模块：代码原先是在单片机里的，更改了其中的读写函数，改为从/dev/i2c-0读写，然后编译之,i2c需要更改dts配置。</li>
+<li>OpenWrtLuCI界面开发：仿照模板，写controller,model/cbi就可以在网页上增加一个配置，另外直接改view层改了标题，加了logo，改了页脚等。</li>
+<li>嵌入式应用升级模块：服务端采用cgi以及静态http文件服务，嵌入式端用wget以及curl写脚本，每隔一段时间从服务端查询最新版本，若需更新，则先下载更新脚本，再运行之</li>
+<li>设备状态数据对接: 由于采集的设备状态数据的不确定性，采用json字符串传输，船端局域网内mcgs组态发udp到OpenWrt，OpenWrt将此数据与其自身采集到的数据合并再tcp传到服务器，服务器端将设备状态的子json解析出来，然后直接以text类型存成一个字段。</li>
+<li>防蹭网模块：主要通过iptables实现</li>
+<li>数据分享：对接到船讯网，数据按AIS格式编码并用UDP发送; 对接到某物流公司：协议为SOAP。</li>
+<li>数据展示：采用百度地图展示采集到信号强度，使用海量点，分成100种设置不同颜色，使用geohash算法合并相邻点并求平均值，地图缩放时hash的级别也变化，点到大小也变化</li>
+</ul>
+<li>船联网-北斗子项目：船端将数据按位封装成帧，并发送，基站端接收并解析再转发到服务器</li>
+<li>船联网-南湖子项目：针对较高的数据更新频率的新需求，服务端增加了Redis内存数据库，收到船端数据后，Redis中存一份，前端请求数据时，从Redis中读取。</li>
+
 <li>五分类血细胞分析仪：负责嵌入式端下位机，基于ARM-AT91，功能包括时序的读取与执行，异常的上报，数据的采集。
 </li>
-<li>云卡项目(demo)：服务端采用php，客户端调用Zxing实现扫码付款功能。</li>
+<li>云卡项目(demo)：服务端采用PHP，客户端调用Zxing实现扫码付款功能。</li>
 <li>期货高频对冲项目：调用上期所CTP接口，采集行情以及交易。</li>
 </ul>
 <h2>求职意向</h2>
-<p>c/c++或golang服务端开发</p>
+<p>C/C++或Golang服务端开发</p>
 </body>
 <script>
 function hzxor(input, key){
 	var output = "";
 	var j = 0;
 	var klen = key.length;
-	for (var i = 0; i != input.length; ++i)	{	
+	for (var i = 0; i != input.length; ++i)	{
 		var input_code = input.charCodeAt(i);
 		var input_key = key.charCodeAt(j++ % klen);
 		var new_code;
