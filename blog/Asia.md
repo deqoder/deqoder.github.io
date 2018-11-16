@@ -1,3 +1,4 @@
+# Asia Countries by Language
 ## East: Sino-Tibetan & Mongolic
 * Sinitic: China, Singapore
 * Tibeto-Burman: Myanmar, Bhutan
@@ -15,8 +16,8 @@
 
 ## Northwest: Turkic & Kartvelian
 
-* Kazakhstan, Kyrgyzstan, Uzbekistan
-* Turkmenistan, Azerbaijan, Turkey
+* Kipchak & Karluk: Kazakhstan, Kyrgyzstan, Uzbekistan
+* Oghuz: Turkmenistan, Azerbaijan, Turkey
 * Kartvelian: Georgia
 
 ## West: Indo-European & Dravidian
