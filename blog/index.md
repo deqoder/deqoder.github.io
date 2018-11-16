@@ -1,4 +1,4 @@
 ## Geography
-[Asia](./Asia)
-[Americas](./Americas)
+* [Asia](./Asia)
+* [Americas](./Americas)
 
