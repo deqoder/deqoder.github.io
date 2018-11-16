@@ -1,4 +1,4 @@
-# Americas Countries by Language(35)
+# Americas UN Member States by Language(35)
 
 ## IE-Germanic-English(14)
 * Mainland(4): United States, Canada, Belize, Guyana
