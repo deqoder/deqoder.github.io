@@ -16,11 +16,11 @@
 | sort   |header| type           | variable/constant     | function     |
 |--------|------| -------------- | --------------------  | -------------|
 | cpu    |setjmp| jmp_buf        |                       | setjmp, longjmp |
-| cpu    |signal| sig_atomic_t   |SIG(FPE/ILL/SEGV), SIG(ABRT/INT/TERM)| signal, raise, SIG_(DFL/IGN/ERR) |
+| cpu    |signal| sig_atomic_t   |SIG(FPE/ILL/SEGV) <br/> SIG(ABRT/INT/TERM)| signal, raise<br/> SIG_(DFL/IGN/ERR) |
 | cpu    |assert|                |                       |  assert |
-| mem&cpu|stdlib| (l)div_t, size_t |  RAND\_MAX <br/> EXIT\_(FAILURE/SUCCESS), NULL  | (m/c/re)alloc/free <br/> abort/(at)exit, getenv, system <br/> ato(i/l/f), strto(ul/l/d) <br/> (l)(abs/div), (s)rand, qsort/bsearch |
-| io     |stdio | FILE, fpos_t, size_t |  (FILENAME/FOPEN)\_MAX, BUFSIZ, \_IO(F/L/N)BF <br/> SEEK\_(CUR/END/SET), EOF <br/> std(in/out/err)  <br/> L_tmpnam, TMP_MAX, NULL | f((re)open/close/flush), set(v)buf <br/> f(get/set)pos, f(tell/seek/eof), rewind <br/> f(read/write), (f)(get/put)(c/s/char), ungetc <br/> (v)(f/s)(print/scan)f, <br/> re(move/name), tmp(file/nam),(f/p)error, clearerr | 
-| time   | time | time_t, clock_t, struct tm <br/> size_t |  CLOCKS_PER_SEC <br/> NULL  | time, clock, difftime <br/> (local/gm/mk)time <br/> (asc/c/strf)time |
+| mem<br/>&cpu<br/>&math<br/>&lang|stdlib| (l)div_t<br/>size_t |  EXIT\_(FAILURE/SUCCESS) <br/> RAND\_MAX <br/>  NULL  | (m/c/re)alloc/free <br/> abort/(at)exit, getenv, system <br/> ato(i/l/f), strto(ul/l/d) <br/> (l)(abs/div), (s)rand, qsort/bsearch |
+| io     |stdio | FILE<br/>fpos_t<br/>size_t |  (FILENAME/FOPEN)\_MAX, <br/> BUFSIZ, \_IO(F/L/N)BF <br/> SEEK\_(CUR/END/SET), EOF <br/> std(in/out/err)  <br/> L_tmpnam, TMP_MAX, NULL | f((re)open/close) <br/> fflush, set(v)buf <br/> f(get/set)pos, f(tell/seek/eof), rewind <br/> f(read/write), (f)(get/put)(c/s/char), ungetc <br/> (v)(f/s)(print/scan)f, <br/> re(move/name), tmp(file/nam),(f/p)error, clearerr | 
+| time   | time | clock_t <br/> time_t<br/>struct tm <br/> size_t |  CLOCKS_PER_SEC <br/> NULL  | clock <br/> time, difftime <br/> (local/gm/mk)time <br/> (asc/c/strf)time |
 
 ### utils
 
